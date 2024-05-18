@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-function GuessInput({updateGuessList}) {
+function GuessInput({gameStatus, updateGuessList}) {
   const [guess, setGuess] = useState('');
 
   const handleSubmit = (event) => {
@@ -25,6 +25,7 @@ function GuessInput({updateGuessList}) {
           <label htmlFor="guess-input">Enter guess:</label>
           <input
             required
+            disabled={gameStatus !== 'running'}
             minLength={5}
             maxLength={5}
             pattern="[a-zA-Z]{5}"
