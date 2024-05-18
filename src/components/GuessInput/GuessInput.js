@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-function GuessInput() {
+function GuessInput({updateGuessList}) {
   const [guess, setGuess] = useState('');
 
   const handleSubmit = (event) => {
@@ -10,7 +10,7 @@ function GuessInput() {
       alert('Guess must be 5 characters long');
       return;
     }
-    console.log({guess});
+    updateGuessList(guess);
     setGuess('');
   };
 
